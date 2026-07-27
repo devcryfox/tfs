@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Se agregó https://http2.mlstatic.com al CSP para permitir que las imágenes carguen -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://fonts.googleapis.com https://fonts.gstatic.com https://images.unsplash.com https://api.whatsapp.com https://http2.mlstatic.com;">
+    <title>Cotizador Seguro | Tierra Firme Seguridad</title>
+    
+    <!-- Fonts & Tailwind CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            900: '#14532d',
+                        },
+                        dark: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Desplazamiento suave y estilos personalizados */
+        html { scroll-behavior: smooth; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        /* Ocultar flechas en inputs de número */
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none;
+            margin: 0; 
+        }
+        input[type=number] { -moz-appearance: textfield; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col justify-between selection:bg-brand-500 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="border-b border-slate-800 bg-dark-950/80 sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center shadow-lg shadow-brand-500/20">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg text-white leading-tight">Tierra Firme Seguridad</h1>
+                    <span class="text-xs text-brand-500 font-medium flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                        Cotizador Seguro SSL
+                    </span>
+                </div>
+            </div>
+            <div class="hidden sm:flex items-center gap-2 text-xs text-slate-400 bg-slate-800/60 px-3 py-1.5 rounded-full border border-slate-700">
+                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 002-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                </svg>
+                Sin Almacenamiento de Datos
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-4 py-8 md:py-12 w-full flex-grow">
+        
+        <!-- Hero Section -->
+        <div class="text-center max-w-2xl mx-auto mb-10">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">
+                Calcula tu Presupuesto al Instante
+            </h2>
+            <p class="text-slate-400 text-sm sm:text-base">
+                Selecciona tus equipos e instalación. Generamos una cotización cifrada que enviarás directamente a nuestro WhatsApp oficial para atención inmediata en <strong class="text-white">Tierra Firme Seguridad</strong>.
+            </p>
+        </div>
+
+        <!-- Form Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Products Column -->
+            <div class="lg:col-span-7 space-y-6">
+                
+                <!-- Anti-Spam Honeypot Field -->
+                <div style="display:none;" aria-hidden="true">
+                    <input type="text" id="website_hp" name="website_hp" tabindex="-1" autocomplete="off">
+                </div>
+
+                <!-- Product 1: Cámara Jooan Dome -->
+                <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl hover:border-slate-600 transition group">
+                    <div class="flex flex-col sm:flex-row gap-5 items-start sm:items-center">
+                        <!-- IMAGEN DE LA CÁMARA ACTUALIZADA CON URL -->
+                        <div class="w-full sm:w-36 h-36 bg-white rounded-xl flex items-center justify-center border border-slate-700 flex-shrink-0 relative overflow-hidden group-hover:border-emerald-500/50 transition-colors">
+                            <img src="https://http2.mlstatic.com/D_NQ_NP_2X_889256-MLM88158545045_072025-F.webp" alt="Cámara Jooan Dome 3MP" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300">
+                            <span class="absolute top-2 left-2 bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md">3MP Full HD</span>
+                        </div>
+                        <div class="flex-1 w-full">
+                            <div class="flex items-center justify-between gap-2 mb-1">
+                                <h3 class="font-bold text-lg text-white">Cámara Jooan Dome 3MP</h3>
+                                <span class="text-xl font-extrabold text-emerald-400">$500 <span class="text-xs font-normal text-slate-400">MXN</span></span>
+                            </div>
+                            <p class="text-xs text-slate-400 mb-3 leading-relaxed">
+                                Cobertura 360° Pan/Tilt, visión nocturna a color, conectividad Wi-Fi/Bluetooth, zoom digital 5x, lente de 3.6mm. Apta para exterior e interior (garaje, jardín, tienda).
+                            </p>
+                            
+                            <!-- Quantity selector -->
+                            <div class="flex items-center justify-between bg-slate-900/80 p-2 rounded-xl border border-slate-700">
+                                <span class="text-xs font-medium text-slate-300 ml-2">Cantidad:</span>
+                                <div class="flex items-center gap-2">
+                                    <button type="button" onclick="adjustQty('cam', -1)" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-bold flex items-center justify-center transition border border-slate-600">-</button>
+                                    <input type="number" id="qty-cam" value="0" min="0" max="20" class="w-12 bg-transparent text-center font-bold text-white text-base focus:outline-none" oninput="calculateTotal()" readonly>
+                                    <button type="button" onclick="adjustQty('cam', 1)" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-bold flex items-center justify-center transition border border-slate-600">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2: Lámpara Solar 100 LED -->
+                <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl hover:border-slate-600 transition group">
+                    <div class="flex flex-col sm:flex-row gap-5 items-start sm:items-center">
+                        <!-- IMAGEN DE LA LÁMPARA ACTUALIZADA CON URL -->
+                        <div class="w-full sm:w-36 h-36 bg-white rounded-xl flex items-center justify-center border border-slate-700 flex-shrink-0 relative overflow-hidden group-hover:border-amber-500/50 transition-colors">
+                            <img src="https://http2.mlstatic.com/D_Q_NP_2X_604189-CBT111675098821_052026-F.webp" alt="Lámpara Solar 100 LED" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300">
+                            <span class="absolute top-2 left-2 bg-amber-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md">100 LED Solar</span>
+                        </div>
+                        <div class="flex-1 w-full">
+                            <div class="flex items-center justify-between gap-2 mb-1">
+                                <h3 class="font-bold text-lg text-white">Lámpara Solar Exterior</h3>
+                                <span class="text-xl font-extrabold text-amber-400">$300 <span class="text-xs font-normal text-slate-400">MXN</span></span>
+                            </div>
+                            <p class="text-xs text-slate-400 mb-3 leading-relaxed">
+                                Sensor de movimiento inteligente, 3.7V, tecnología LED avanzada, 100% inalámbrica e impermeable. Iluminación sostenible sin costo eléctrico.
+                            </p>
+                            
+                            <!-- Quantity selector -->
+                            <div class="flex items-center justify-between bg-slate-900/80 p-2 rounded-xl border border-slate-700">
+                                <span class="text-xs font-medium text-slate-300 ml-2">Cantidad:</span>
+                                <div class="flex items-center gap-2">
+                                    <button type="button" onclick="adjustQty('luz', -1)" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-bold flex items-center justify-center transition border border-slate-600">-</button>
+                                    <input type="number" id="qty-luz" value="0" min="0" max="20" class="w-12 bg-transparent text-center font-bold text-white text-base focus:outline-none" oninput="calculateTotal()" readonly>
+                                    <button type="button" onclick="adjustQty('luz', 1)" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-bold flex items-center justify-center transition border border-slate-600">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Option: Instalación -->
+                <div class="bg-slate-800/50 rounded-2xl p-5 border border-slate-700/60">
+                    <label class="flex items-center justify-between cursor-pointer group">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold">
+                                🛠️
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm group-hover:text-indigo-300 transition">Incluir Instalación Profesional</h4>
+                                <p class="text-xs text-slate-400">Montaje, cableado/fijación y configuración inicial (+$150 MXN por equipo)</p>
+                            </div>
+                        </div>
+                        <input type="checkbox" id="check-install" class="w-5 h-5 accent-emerald-500 rounded cursor-pointer" onchange="calculateTotal()">
+                    </label>
+                </div>
+
+            </div>
+
+            <!-- Summary / Checkout Column -->
+            <div class="lg:col-span-5">
+                <div class="bg-slate-800/90 rounded-2xl p-6 border border-slate-700 shadow-2xl sticky top-24">
+                    <h3 class="text-lg font-bold text-white mb-4 pb-3 border-b border-slate-700 flex items-center justify-between">
+                        <span>Resumen del Pedido</span>
+                        <span class="text-xs bg-slate-700 text-slate-300 px-2.5 py-1 rounded-full font-mono" id="quote-id">#ID-0000</span>
+                    </h3>
+
+                    <!-- Breakdown -->
+                    <div class="space-y-3 text-sm mb-6">
+                        <div class="flex justify-between text-slate-300">
+                            <span id="label-cam">Cámara Jooan (x0)</span>
+                            <span id="price-cam" class="font-semibold text-white">$0 MXN</span>
+                        </div>
+                        <div class="flex justify-between text-slate-300">
+                            <span id="label-luz">Lámpara Solar (x0)</span>
+                            <span id="price-luz" class="font-semibold text-white">$0 MXN</span>
+                        </div>
+                        <div class="flex justify-between text-slate-300 border-t border-slate-700/50 pt-3">
+                            <span>Servicio de Instalación</span>
+                            <span id="price-install" class="font-semibold text-white">$0 MXN</span>
+                        </div>
+                    </div>
+
+                    <!-- Total -->
+                    <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-700/80 mb-6">
+                        <div class="text-xs text-slate-400 mb-1">Monto Total Estimado</div>
+                        <div class="text-3xl font-extrabold text-emerald-400" id="total-price">$0 MXN</div>
+                        <div class="text-[11px] text-slate-500 mt-1">Sujeto a confirmación de ubicación.</div>
+                    </div>
+
+                    <!-- Security Badge -->
+                    <div class="bg-slate-900/50 p-3 rounded-lg border border-slate-800 text-[11px] text-slate-400 space-y-1 mb-6">
+                        <div class="flex items-center gap-1.5 text-emerald-400 font-semibold">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Garantía de Privacidad
+                        </div>
+                        <p>No almacenamos datos personales en servidores. Toda la información se procesa de manera privada a través de WhatsApp.</p>
+                    </div>
+
+                    <!-- Checkout Button -->
+                    <button type="button" onclick="sendOrderToWhatsApp()" id="btn-submit" class="w-full bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-200 shadow-lg shadow-emerald-900/40 flex items-center justify-center gap-3 group active:scale-[0.98]">
+                        <svg class="w-6 h-6 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                        </svg>
+                        <span>Enviar Pedido a WhatsApp</span>
+                    </button>
+                    
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-dark-950 py-6 text-center text-xs text-slate-500">
+        <div class="max-w-5xl mx-auto px-4 space-y-2">
+            <p>© 2026 Tierra Firme Seguridad. Todos los derechos reservados.</p>
+            <p class="text-slate-600">Página web estática de alta seguridad. Cero almacenamiento de cookies de rastreo.</p>
+        </div>
+    </footer>
+
+    <!-- Script con Ofuscación y Lógica de Negocio -->
+    <script>
+        // Precios base
+        const PRICE_CAM = 500;
+        const PRICE_LUZ = 300;
+        const PRICE_INSTALL_UNIT = 150;
+
+        // Generar un ID aleatorio de cotización
+        const quoteId = "COT-" + Math.floor(1000 + Math.random() * 9000);
+        document.getElementById('quote-id').innerText = "#" + quoteId;
+
+        function adjustQty(type, delta) {
+            const input = document.getElementById('qty-' + type);
+            let val = parseInt(input.value) || 0;
+            val = Math.max(0, Math.min(20, val + delta));
+            input.value = val;
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            const qtyCam = parseInt(document.getElementById('qty-cam').value) || 0;
+            const qtyLuz = parseInt(document.getElementById('qty-luz').value) || 0;
+            const withInstall = document.getElementById('check-install').checked;
+
+            const subtotalCam = qtyCam * PRICE_CAM;
+            const subtotalLuz = qtyLuz * PRICE_LUZ;
+            const totalUnits = qtyCam + qtyLuz;
+            const installCost = withInstall ? (totalUnits * PRICE_INSTALL_UNIT) : 0;
+            const grandTotal = subtotalCam + subtotalLuz + installCost;
+
+            // Update UI Labels
+            document.getElementById('label-cam').innerText = `Cámara Jooan (x${qtyCam})`;
+            document.getElementById('price-cam').innerText = `$${subtotalCam.toLocaleString('es-MX')} MXN`;
+
+            document.getElementById('label-luz').innerText = `Lámpara Solar (x${qtyLuz})`;
+            document.getElementById('price-luz').innerText = `$${subtotalLuz.toLocaleString('es-MX')} MXN`;
+
+            document.getElementById('price-install').innerText = `$${installCost.toLocaleString('es-MX')} MXN`;
+            document.getElementById('total-price').innerText = `$${grandTotal.toLocaleString('es-MX')} MXN`;
+
+            return { qtyCam, qtyLuz, withInstall, subtotalCam, subtotalLuz, installCost, grandTotal };
+        }
+
+        // Método de ofuscación para proteger el número celular contra bots de spam
+        function getSecurePhoneNumber() {
+            const a = [5, 2];
+            const b = [6, 2, 7];
+            const c = [1, 5, 0];
+            const d = [2, 0, 8, 2];
+            return a.join('') + b.join('') + c.join('') + d.join('');
+        }
+
+        function sendOrderToWhatsApp() {
+            // Protección Anti-Spam (Honeypot check)
+            const hp = document.getElementById('website_hp').value;
+            if (hp !== '') {
+                console.warn("Bot detectado.");
+                return;
+            }
+
+            const data = calculateTotal();
+
+            if (data.qtyCam === 0 && data.qtyLuz === 0) {
+                alert("Por favor selecciona al menos una Cámara o una Lámpara Solar para realizar tu cotización.");
+                return;
+            }
+
+            // Construir el mensaje formateado para WhatsApp
+            let text = `🔒 *NUEVA COTIZACIÓN - TIERRA FIRME SEGURIDAD [${quoteId}]*\n`;
+            text += `-----------------------------------\n\n`;
+            text += `¡Hola equipo de Tierra Firme! Me interesa el siguiente pedido:\n\n`;
+            text += `*Detalle de Productos:*\n`;
+
+            if (data.qtyCam > 0) {
+                text += `• ${data.qtyCam}x Cámara Jooan Dome 3MP ($${data.subtotalCam} MXN)\n`;
+            }
+            if (data.qtyLuz > 0) {
+                text += `• ${data.qtyLuz}x Lámpara Solar 100 LED ($${data.subtotalLuz} MXN)\n`;
+            }
+
+            text += `\n*Servicio de Instalación:* ${data.withInstall ? `SÍ (+$${data.installCost} MXN)` : 'NO (Solo suministro)'}\n`;
+            text += `\n💰 *TOTAL ESTIMADO: $${data.grandTotal.toLocaleString('es-MX')} MXN*\n`;
+            text += `-----------------------------------\n`;
+            text += `Quedo atento para confirmar disponibilidad y agendar la entrega/instalación.`;
+
+            const phone = getSecurePhoneNumber();
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(text)}`;
+
+            // Redirección segura
+            window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+        }
+
+        // Inicializar cálculo en carga
+        calculateTotal();
+    </script>
+</body>
+</html>
