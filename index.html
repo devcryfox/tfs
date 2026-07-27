@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Se agregó https://http2.mlstatic.com al CSP para permitir que las imágenes carguen -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://fonts.googleapis.com https://fonts.gstatic.com https://images.unsplash.com https://api.whatsapp.com https://http2.mlstatic.com;">
     <title>Cotizador Seguro | Tierra Firme Seguridad</title>
     
@@ -39,13 +38,11 @@
         }
     </script>
     <style>
-        /* Desplazamiento suave y estilos personalizados */
         html { scroll-behavior: smooth; }
         .glass-card {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
         }
-        /* Ocultar flechas en inputs de número */
         input[type=number]::-webkit-inner-spin-button, 
         input[type=number]::-webkit-outer-spin-button { 
             -webkit-appearance: none;
@@ -109,7 +106,6 @@
                 <!-- Product 1: Cámara Jooan Dome -->
                 <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl hover:border-slate-600 transition group">
                     <div class="flex flex-col sm:flex-row gap-5 items-start sm:items-center">
-                        <!-- IMAGEN DE LA CÁMARA ACTUALIZADA CON URL -->
                         <div class="w-full sm:w-36 h-36 bg-white rounded-xl flex items-center justify-center border border-slate-700 flex-shrink-0 relative overflow-hidden group-hover:border-emerald-500/50 transition-colors">
                             <img src="https://http2.mlstatic.com/D_NQ_NP_2X_889256-MLM88158545045_072025-F.webp" alt="Cámara Jooan Dome 3MP" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300">
                             <span class="absolute top-2 left-2 bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md">3MP Full HD</span>
@@ -139,7 +135,6 @@
                 <!-- Product 2: Lámpara Solar 100 LED -->
                 <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700/80 shadow-xl hover:border-slate-600 transition group">
                     <div class="flex flex-col sm:flex-row gap-5 items-start sm:items-center">
-                        <!-- IMAGEN DE LA LÁMPARA ACTUALIZADA CON URL -->
                         <div class="w-full sm:w-36 h-36 bg-white rounded-xl flex items-center justify-center border border-slate-700 flex-shrink-0 relative overflow-hidden group-hover:border-amber-500/50 transition-colors">
                             <img src="https://http2.mlstatic.com/D_Q_NP_2X_604189-CBT111675098821_052026-F.webp" alt="Lámpara Solar 100 LED" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300">
                             <span class="absolute top-2 left-2 bg-amber-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md">100 LED Solar</span>
@@ -175,7 +170,7 @@
                             </div>
                             <div>
                                 <h4 class="font-bold text-white text-sm group-hover:text-indigo-300 transition">Incluir Instalación Profesional</h4>
-                                <p class="text-xs text-slate-400">Montaje, cableado/fijación y configuración inicial (+$450 MXN por equipo)</p>
+                                <p class="text-xs text-slate-400">Montaje y configuración (+$450 MXN por Cámara / +$200 MXN por Lámpara)</p>
                             </div>
                         </div>
                         <input type="checkbox" id="check-install" class="w-5 h-5 accent-emerald-500 rounded cursor-pointer" onchange="calculateTotal()">
@@ -254,7 +249,8 @@
         // Precios base
         const PRICE_CAM = 500;
         const PRICE_LUZ = 300;
-        const PRICE_INSTALL_UNIT = 450;
+        const PRICE_INSTALL_CAM = 450;
+        const PRICE_INSTALL_LUZ = 200;
 
         // Generar un ID aleatorio de cotización
         const quoteId = "COT-" + Math.floor(1000 + Math.random() * 9000);
@@ -275,8 +271,12 @@
 
             const subtotalCam = qtyCam * PRICE_CAM;
             const subtotalLuz = qtyLuz * PRICE_LUZ;
-            const totalUnits = qtyCam + qtyLuz;
-            const installCost = withInstall ? (totalUnits * PRICE_INSTALL_UNIT) : 0;
+            
+            // Cálculo diferenciado de instalación
+            const installCostCam = withInstall ? (qtyCam * PRICE_INSTALL_CAM) : 0;
+            const installCostLuz = withInstall ? (qtyLuz * PRICE_INSTALL_LUZ) : 0;
+            const installCost = installCostCam + installCostLuz;
+
             const grandTotal = subtotalCam + subtotalLuz + installCost;
 
             // Update UI Labels
@@ -337,7 +337,6 @@
             const phone = getSecurePhoneNumber();
             const whatsappUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(text)}`;
 
-            // Redirección segura
             window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
         }
 
